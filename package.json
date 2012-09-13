@@ -1,24 +1,31 @@
 {
-  "name": "grunt-unicon",
-  "description": "A mystical CSS icon solution",
+  "name": "grunt-unicon-sass",
+  "description": "A mystical CSS icon solution. This is a fork from filamentgroup grunt-unicon: this version is Sass powered, maintained by Sergi Meseguer aka zigotica",
   "version": "0.1.4",
-  "homepage": "https://github.com/filamentgroup/unicon",
+  "homepage": "https://github.com/zigotica/unicon",
   "author": {
     "name": "Scott Jehl",
     "email": "scott@filamentgroup.com",
     "url": "http://filamentgroup.com"
   },
+  "maintainers": [ 
+    {
+      "name": "Sergi Meseguer",
+      "email": "zigotica@gmail.com",
+      "url": "http://zigotica.com"
+    } 
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/filamentgroup/unicon.git"
+    "url": "https://github.com/zigotica/unicon.git"
   },
   "bugs": {
-    "url": "https://github.com/filamentgroup/unicon/issues"
+    "url": "https://github.com/zigotica/unicon/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/filamentgroup/unicon/blob/master/LICENSE-MIT"
+      "url": "https://github.com/zigotica/unicon/blob/master/LICENSE-MIT"
     }
   ],
   "main": "tasks/unicon",
@@ -32,6 +39,16 @@
     "grunt": "~0.3.9"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin",
+    "unicon",
+    "sass",
+    "scss",
+    "icon",
+    "svg",
+    "png",
+    "datauri",
+    "base64",
+    "",
+    "",
   ]
 }

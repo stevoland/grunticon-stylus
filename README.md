@@ -19,11 +19,11 @@ This is a Sass version of the [original and awesomer Unicon](https://github.com/
 
 Unicon is a [Grunt.js](https://github.com/cowboy/grunt/) task that makes it easy to manage icons and background images for all devices, preferring HD (retina) SVG icons but also provides fallback support for standard definition browsers, and old browsers alike. From a CSS perspective, it's easy to use, as it generates a customizable selector referencing each icon, and doesn't use CSS sprites. 
 
-Unicon takes a [folder of SVG files](https://github.com/filamentgroup/unicon/tree/master/example/source) (typically, icons that you've drawn in an application like Adobe Illustrator), and [outputs them](https://github.com/filamentgroup/unicon/tree/master/example/output) to SCSS in 3 formats: [svg data urls](https://github.com/zigotica/unicon/blob/master/example/output/icons.data.svg.scss), [png data urls](https://github.com/zigotica/unicon/blob/master/example/output/icons.data.png.scss), and [a third fallback CSS file with references to regular png images](https://github.com/zigotica/unicon/blob/master/example/output/icons.fallback.scss), which are also automatically [generated and placed in a folder](https://github.com/zigotica/unicon/tree/master/example/output/png). 
+Unicon takes a [folder of SVG files](https://github.com/zigotica/unicon/tree/master/example/source) (typically, icons that you've drawn in an application like Adobe Illustrator), and [outputs them](https://github.com/zigotica/unicon/tree/master/example/output) to SCSS in 3 formats: [svg data urls](https://github.com/zigotica/unicon/blob/master/example/output/icons.data.svg.scss), [png data urls](https://github.com/zigotica/unicon/blob/master/example/output/icons.data.png.scss), and [a third fallback CSS file with references to regular png images](https://github.com/zigotica/unicon/blob/master/example/output/icons.fallback.scss), which are also automatically [generated and placed in a folder](https://github.com/zigotica/unicon/tree/master/example/output/png). 
 
 Currently, as of version 0.1.4 of this fork we are outputting 3 scss files and one txt that holds a list of selectors/original files. The purpose is to use sass to hold a file list with custom selectors for each icon, so we can import them into the 3 scss files and watch changes to build the final css files. The original filelist must be copy/pasted into a scss file that we will create and maintain separately (to avoid overwritting custom selectors). The name of the text and scss files can also be customized in grunt.js
 
-Unicon also generates [a small bit of JavaScript and CSS](https://github.com/filamentgroup/unicon/blob/master/example/output/unicon.loader.txt) to drop into your site, which asynchronously loads the appropriate icon CSS depending on a browser's capabilities, and a preview HTML file with that loader script in place. 
+Unicon also generates [a small bit of JavaScript and CSS](https://github.com/zigotica/unicon/blob/master/example/output/unicon.loader.txt) to drop into your site, which asynchronously loads the appropriate icon CSS depending on a browser's capabilities, and a preview HTML file with that loader script in place. 
 
 You can see [a demonstration of the output here](http://filamentgroup.com/examples/unicon-output/preview.html).
 
@@ -147,4 +147,5 @@ The example SVG icons in the source folder are borrowed from a few places, with 
 - [Cat icon by  Marie Coons](http://thenounproject.com/noun/cat/#icon-No840)
 - All others are either from [this free set by Tehk Seven](http://www.tehkseven.net/blog/1/entry-1066-475-free-awesome-high-quality-icons-for-designers/) or drawn by @toddparker of Filament Group
 
-
+## ToDo
+- add grunt-compass to watch for scss changes automatically on grunt call (add it to dependencies section in package.json as well)
