@@ -47,8 +47,6 @@
     "svg",
     "png",
     "datauri",
-    "base64",
-    "",
-    "",
+    "base64"
   ]
 }
