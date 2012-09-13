@@ -1,7 +1,7 @@
 {
   "name": "grunt-unicon-sass",
   "description": "A mystical CSS icon solution. This is a fork from filamentgroup grunt-unicon: this version is Sass powered, maintained by Sergi Meseguer aka zigotica",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "homepage": "https://github.com/zigotica/unicon",
   "author": {
     "name": "Scott Jehl",
