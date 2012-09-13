@@ -23,6 +23,8 @@ phantom args sent from unicon.js:
   [8] - png folder name
   [9] - css classname prefix
   [10] - css basepath prefix
+  [11] - text file that will hold the original list of icons
+  [12] - scss file that will hold the customized selectors
 */
 
 var fs = require( "fs" );

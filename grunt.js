@@ -71,7 +71,7 @@ module.exports = function(grunt) {
   });
 
   // load npm tasks.
-  grunt.loadNpmTasks('grunt-unicon');
+  grunt.loadNpmTasks('grunt-unicon-sass');
 
   // Load local tasks.
   grunt.loadTasks('tasks');

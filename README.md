@@ -37,12 +37,12 @@ First, you'll need to install [PhantomJS](http://phantomjs.org/), which you migh
 
 Once those are installed...
 
-Install the Unicon module with: `npm install grunt-unicon`
+Install the Unicon module with: `npm install grunt-unicon-sass`
 
 Then add this line to your project's `grunt.js` gruntfile:
 
 ```javascript
-grunt.loadNpmTasks('grunt-unicon');
+grunt.loadNpmTasks('grunt-unicon-sass');
 ```
 
 And lastly, add the configuration settings to your `grunt.js` file as mentioned below. Unicon will batch your icons whenever you run `$ grunt`, and output the files listed above to your `dest` folder, which is documented below.
