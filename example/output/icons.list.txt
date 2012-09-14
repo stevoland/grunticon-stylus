@@ -1,35 +1,35 @@
-$icon-wee-arrow-11 : ".arrow-11";
+$icon-wee-arrow-11 : ".icon-wee-arrow-11";
 
-$icon-wee-arrow-tiny : ".arrow-tiny";
+$icon-wee-arrow-tiny : ".icon-wee-arrow-tiny";
 
-$icon-wee-bear : ".bear";
+$icon-wee-bear : ".icon-wee-bear";
 
-$icon-wee-cat : ".cat";
+$icon-wee-cat : ".icon-wee-cat";
 
-$icon-wee-gear : ".gear";
+$icon-wee-gear : ".icon-wee-gear";
 
-$icon-wee-gradients-flat-opacity : ".gradients-flat-opacity";
+$icon-wee-gradients-flat-opacity : ".icon-wee-gradients-flat-opacity";
 
-$icon-wee-gradients : ".gradients";
+$icon-wee-gradients : ".icon-wee-gradients";
 
-$icon-wee-Home_Media : ".Home_Media";
+$icon-wee-Home_Media : ".icon-wee-Home_Media";
 
-$icon-wee-Image_Exchange : ".Image_Exchange";
+$icon-wee-Image_Exchange : ".icon-wee-Image_Exchange";
 
-$icon-wee-Internet : ".Internet";
+$icon-wee-Internet : ".icon-wee-Internet";
 
-$icon-wee-Internet_FP2 : ".Internet_FP2";
+$icon-wee-Internet_FP2 : ".icon-wee-Internet_FP2";
 
-$icon-wee-Internet_Radio : ".Internet_Radio";
+$icon-wee-Internet_Radio : ".icon-wee-Internet_Radio";
 
-$icon-wee-Internet_Tel : ".Internet_Tel";
+$icon-wee-Internet_Tel : ".icon-wee-Internet_Tel";
 
-$icon-wee-Intranet : ".Intranet";
+$icon-wee-Intranet : ".icon-wee-Intranet";
 
-$icon-wee-map : ".map";
+$icon-wee-map : ".icon-wee-map";
 
-$icon-wee-plus : ".plus";
+$icon-wee-plus : ".icon-wee-plus";
 
-$icon-wee-star : ".star";
+$icon-wee-star : ".icon-wee-star";
 
-$icon-wee-unicon : ".unicon";
+$icon-wee-unicon : ".icon-wee-unicon";

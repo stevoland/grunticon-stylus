@@ -16,15 +16,18 @@ phantom args sent from unicon.js:
   [1] - output directory path
   [2] - asyncCSS output file path
   [3] - preview.html static file path
-  [4] - CSS filename for datasvg css
-  [5] - CSS filename for datapng css
-  [6] - CSS filename for urlpng css
+  [4] - SCSS filename for datasvg scss
+  [5] - SCSS filename for datapng scss
+  [6] - SCSS filename for urlpng scss
   [7] - filename for preview HTML file
   [8] - png folder name
   [9] - css classname prefix
   [10] - css basepath prefix
   [11] - text file that will hold the original list of icons
   [12] - scss file that will hold the customized selectors
+  [13] - CSS filename for datasvg css (for preview.html js code)
+  [14] - CSS filename for datapng css
+  [15] - CSS filename for urlpng css
 */
 
 var fs = require( "fs" );
@@ -38,10 +41,14 @@ var pngcssrules = [];
 var pngdatacssrules = [];
 var datacssrules = [];
 var htmlpreviewbody = [];
-var fallbackcss = phantom.args[6];
-var pngdatacss = phantom.args[5];
-var datacss = phantom.args[4];
+var fallbackscss = phantom.args[6];
+var pngdatascss = phantom.args[5];
+var datascss = phantom.args[4];
 var cssbasepath = phantom.args[10];
+// css version as well to be used in the async call:
+var fallbackcss = phantom.args[15];
+var pngdatacss = phantom.args[14];
+var datacss = phantom.args[13];
 // hold the list of icons:
 var listiconsnames = [];
 var listiconsfile = phantom.args[11];
@@ -105,10 +112,10 @@ function finishUp(){
   }
   */
 
-  // write CSS files
-  fs.write( outputdir + fallbackcss, pngcssrules.join( "\n\n" ) );
-  fs.write( outputdir + pngdatacss, pngdatacssrules.join( "\n\n" ) );
-  fs.write( outputdir + datacss, datacssrules.join( "\n\n" ) );
+  // write SCSS files
+  fs.write( outputdir + fallbackscss, pngcssrules.join( "\n\n" ) );
+  fs.write( outputdir + pngdatascss, pngdatacssrules.join( "\n\n" ) );
+  fs.write( outputdir + datascss, datacssrules.join( "\n\n" ) );
 
   // overwrite the snippet HTML
   fs.write( phantom.args[2], "<!-- Unicode CSS Loader: place this in the head of your page -->\n<script>\n" + asyncCSS + "</script>\n" + noscript );
@@ -141,7 +148,7 @@ function processFile(){
         svgdatauri += btoa(svgdata);
 
         // add lines to list of icons file:
-        listiconsnames.push( "$" + cssprefix + filenamenoext + " : \"." + filenamenoext + "\";" );
+        listiconsnames.push( "$" + cssprefix + filenamenoext + " : \"." + cssprefix + filenamenoext + "\";" );
 
         // add rules to svg data css file (changed from .icon-file format to #{$icon-file} format)
         datacssrules.push( "#{$" + cssprefix + filenamenoext + "} { background-image: url(" + svgdatauri + "); background-repeat: no-repeat; }" );

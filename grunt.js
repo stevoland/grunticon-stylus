@@ -27,10 +27,15 @@ module.exports = function(grunt) {
       // YOU create this file manually so that we dont overwrite content on icons change
       iconslistcss: "icons.list.scss",
 
-      // CSS filenames (now sass powered in order to manage different selectors)
-      datasvgcss: "icons.data.svg.scss",
-      datapngcss: "icons.data.png.scss",
-      urlpngcss: "icons.fallback.scss",
+      // SCSS filenames (now sass powered in order to manage different selectors)
+      datasvgscss: "icons.data.svg.scss",
+      datapngscss: "icons.data.png.scss",
+      urlpngscss: "icons.fallback.scss",
+
+      // CSS filenames (used in async call in preview html)
+      datasvgcss: "icons.data.svg.css",
+      datapngcss: "icons.data.png.css",
+      urlpngcss: "icons.fallback.css",
 
       // preview HTML filename
       previewhtml: "preview.html",

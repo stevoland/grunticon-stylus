@@ -42,10 +42,15 @@ module.exports = function(grunt ) {
     // we list it here so we can add the require rules at beginning of the 3 scss files
     var iconslistcss = grunt.config.iconslistcss || "icons.list.scss";
 
-    // CSS filenames (now sass powered) with optional mixin from config
-    var datasvgcss = grunt.config.datasvgcss || "icons.data.svg.scss";
-    var datapngcss = grunt.config.datapngcss || "icons.data.png.scss";
-    var urlpngcss = grunt.config.urlpngcss || "icons.fallback.scss";
+    // SCSS filenames 
+    var datasvgscss = grunt.config.datasvgscss || "icons.data.svg.scss";
+    var datapngscss = grunt.config.datapngscss || "icons.data.png.scss";
+    var urlpngscss = grunt.config.urlpngscss || "icons.fallback.scss";
+
+    // CSS filenames to be used on preview async call
+    var datasvgcss = grunt.config.datasvgcss || "icons.data.svg.css";
+    var datapngcss = grunt.config.datapngcss || "icons.data.png.css";
+    var urlpngcss = grunt.config.urlpngcss || "icons.fallback.css";
 
     //filename for generated output preview HTML file
     var previewhtml = config.previewhtml || "preview.html";
@@ -92,15 +97,18 @@ module.exports = function(grunt ) {
         config.dest,
         loaderCodeDest,
         previewHTMLsrc,
-        datasvgcss,
-        datapngcss,
-        urlpngcss,
+        datasvgscss,
+        datapngscss,
+        urlpngscss,
         previewhtml,
         pngfolder,
         cssprefix,
         cssbasepath,
         iconslistfile,
-        iconslistcss
+        iconslistcss,
+        datasvgcss,
+        datapngcss,
+        urlpngcss
       ],
       fallback: ''
     }, function(err, result, code) {

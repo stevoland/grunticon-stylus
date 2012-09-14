@@ -1,71 +1,71 @@
-.arrow-11:before, .arrow {
+.icon-wee-arrow-11, .arrow:before {
   background-image: url(png/arrow-11.png);
   background-repeat: no-repeat; }
 
-.arrow-tiny {
+.icon-wee-arrow-tiny {
   background-image: url(png/arrow-tiny.png);
   background-repeat: no-repeat; }
 
-.bear, .withme {
+.icon-wee-bear, .withme {
   background-image: url(png/bear.png);
   background-repeat: no-repeat; }
 
-.cat {
+.icon-wee-cat {
   background-image: url(png/cat.png);
   background-repeat: no-repeat; }
 
-.gear {
+.icon-wee-gear {
   background-image: url(png/gear.png);
   background-repeat: no-repeat; }
 
-.gradients-flat-opacity {
+.icon-wee-gradients-flat-opacity {
   background-image: url(png/gradients-flat-opacity.png);
   background-repeat: no-repeat; }
 
-.gradients {
+.icon-wee-gradients {
   background-image: url(png/gradients.png);
   background-repeat: no-repeat; }
 
-.Home_Media {
+.icon-wee-Home_Media {
   background-image: url(png/Home_Media.png);
   background-repeat: no-repeat; }
 
-.Image_Exchange {
+.icon-wee-Image_Exchange {
   background-image: url(png/Image_Exchange.png);
   background-repeat: no-repeat; }
 
-.Internet {
+.icon-wee-Internet {
   background-image: url(png/Internet.png);
   background-repeat: no-repeat; }
 
-.Internet_FP2 {
+.icon-wee-Internet_FP2 {
   background-image: url(png/Internet_FP2.png);
   background-repeat: no-repeat; }
 
-.Internet_Radio {
+.icon-wee-Internet_Radio {
   background-image: url(png/Internet_Radio.png);
   background-repeat: no-repeat; }
 
-.Internet_Tel {
+.icon-wee-Internet_Tel {
   background-image: url(png/Internet_Tel.png);
   background-repeat: no-repeat; }
 
-.Intranet {
+.icon-wee-Intranet {
   background-image: url(png/Intranet.png);
   background-repeat: no-repeat; }
 
-.map {
+.icon-wee-map {
   background-image: url(png/map.png);
   background-repeat: no-repeat; }
 
-.plus, .doublegoodplusultra {
+.icon-wee-plus, .supergoodplus {
   background-image: url(png/plus.png);
   background-repeat: no-repeat; }
 
-.star {
+.icon-wee-star {
   background-image: url(png/star.png);
   background-repeat: no-repeat; }
 
-.unicon, .uniconrocks {
+.icon-wee-unicon {
   background-image: url(png/unicon.png);
   background-repeat: no-repeat; }
