@@ -1,71 +1,71 @@
-.icon-wee-arrow-11, .arrow:before {
+.icon-arrow-11 {
   background-image: url(png/arrow-11.png);
   background-repeat: no-repeat; }
 
-.icon-wee-arrow-tiny {
+.icon-arrow-tiny {
   background-image: url(png/arrow-tiny.png);
   background-repeat: no-repeat; }
 
-.icon-wee-bear, .withme {
+.icon-bear, .withme {
   background-image: url(png/bear.png);
   background-repeat: no-repeat; }
 
-.icon-wee-cat {
+.icon-cat {
   background-image: url(png/cat.png);
   background-repeat: no-repeat; }
 
-.icon-wee-gear {
+.icon-gear {
   background-image: url(png/gear.png);
   background-repeat: no-repeat; }
 
-.icon-wee-gradients-flat-opacity {
+.icon-gradients-flat-opacity {
   background-image: url(png/gradients-flat-opacity.png);
   background-repeat: no-repeat; }
 
-.icon-wee-gradients {
+.icon-gradients {
   background-image: url(png/gradients.png);
   background-repeat: no-repeat; }
 
-.icon-wee-Home_Media {
+.icon-grunticon {
+  background-image: url(png/grunticon.png);
+  background-repeat: no-repeat; }
+
+.icon-Home_Media {
   background-image: url(png/Home_Media.png);
   background-repeat: no-repeat; }
 
-.icon-wee-Image_Exchange {
+.icon-Image_Exchange {
   background-image: url(png/Image_Exchange.png);
   background-repeat: no-repeat; }
 
-.icon-wee-Internet {
+.icon-Internet {
   background-image: url(png/Internet.png);
   background-repeat: no-repeat; }
 
-.icon-wee-Internet_FP2 {
+.icon-Internet_FP2 {
   background-image: url(png/Internet_FP2.png);
   background-repeat: no-repeat; }
 
-.icon-wee-Internet_Radio {
+.icon-Internet_Radio {
   background-image: url(png/Internet_Radio.png);
   background-repeat: no-repeat; }
 
-.icon-wee-Internet_Tel {
+.icon-Internet_Tel {
   background-image: url(png/Internet_Tel.png);
   background-repeat: no-repeat; }
 
-.icon-wee-Intranet {
+.icon-Intranet {
   background-image: url(png/Intranet.png);
   background-repeat: no-repeat; }
 
-.icon-wee-map {
+.icon-map {
   background-image: url(png/map.png);
   background-repeat: no-repeat; }
 
-.icon-wee-plus, .supergoodplus {
+.icon-plus, .doublegoodplus {
   background-image: url(png/plus.png);
   background-repeat: no-repeat; }
 
-.icon-wee-star {
+.icon-star {
   background-image: url(png/star.png);
-  background-repeat: no-repeat; }
-
-.icon-wee-unicon {
-  background-image: url(png/unicon.png);
   background-repeat: no-repeat; }

@@ -1,38 +1,35 @@
-// EXAMPLE SCSS FILE TO SHOW CUSTOM SELECTORS
-// SEE HOW THEY REPLICATE IN THE GENERATED FILES :)
+$icon-arrow-11 : ".icon-arrow-11";
 
-$icon-wee-arrow-11 : ".icon-wee-arrow-11, .arrow:before";
+$icon-arrow-tiny : ".icon-arrow-tiny";
 
-$icon-wee-arrow-tiny : ".icon-wee-arrow-tiny";
+$icon-bear : ".icon-bear, .withme";
 
-$icon-wee-bear : ".icon-wee-bear, .withme";
+$icon-cat : ".icon-cat";
 
-$icon-wee-cat : ".icon-wee-cat";
+$icon-gear : ".icon-gear";
 
-$icon-wee-gear : ".icon-wee-gear";
+$icon-gradients-flat-opacity : ".icon-gradients-flat-opacity";
 
-$icon-wee-gradients-flat-opacity : ".icon-wee-gradients-flat-opacity";
+$icon-gradients : ".icon-gradients";
 
-$icon-wee-gradients : ".icon-wee-gradients";
+$icon-grunticon : ".icon-grunticon";
 
-$icon-wee-Home_Media : ".icon-wee-Home_Media";
+$icon-Home_Media : ".icon-Home_Media";
 
-$icon-wee-Image_Exchange : ".icon-wee-Image_Exchange";
+$icon-Image_Exchange : ".icon-Image_Exchange";
 
-$icon-wee-Internet : ".icon-wee-Internet";
+$icon-Internet : ".icon-Internet";
 
-$icon-wee-Internet_FP2 : ".icon-wee-Internet_FP2";
+$icon-Internet_FP2 : ".icon-Internet_FP2";
 
-$icon-wee-Internet_Radio : ".icon-wee-Internet_Radio";
+$icon-Internet_Radio : ".icon-Internet_Radio";
 
-$icon-wee-Internet_Tel : ".icon-wee-Internet_Tel";
+$icon-Internet_Tel : ".icon-Internet_Tel";
 
-$icon-wee-Intranet : ".icon-wee-Intranet";
+$icon-Intranet : ".icon-Intranet";
 
-$icon-wee-map : ".icon-wee-map";
+$icon-map : ".icon-map";
 
-$icon-wee-plus : ".icon-wee-plus, .supergoodplus";
+$icon-plus : ".icon-plus, .doublegoodplus";
 
-$icon-wee-star : ".icon-wee-star";
-
-$icon-wee-unicon : ".icon-wee-unicon";
+$icon-star : ".icon-star";

@@ -1,1 +1,0 @@
-/* Unicon Stylesheet Loader | https://github.com/filamentgroup/unicon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */

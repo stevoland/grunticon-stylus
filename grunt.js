@@ -12,12 +12,12 @@ module.exports = function(grunt) {
       files: '<config:lint.files>',
       tasks: 'default'
     },
-    unicon: {
+    grunticon: {
       // required config
       src: "example/source/",
       dest: "example/output/",
 
-      // optional unicon config properties
+      // optional grunticon config properties
 
       // text file that will hold the original list of icons
       // to be copy/pasted into a customizable scss file by editor
@@ -40,14 +40,14 @@ module.exports = function(grunt) {
       // preview HTML filename
       previewhtml: "preview.html",
 
-      // Unicon loader code snippet filename
-      loadersnippet: "unicon.loader.txt",
+      // grunticon loader code snippet filename
+      loadersnippet: "grunticon.loader.txt",
 
       // folder name (within dest) for png output
       pngfolder: "png/",
 
       // prefix for CSS classnames
-      cssprefix: "icon-wee-",
+      cssprefix: "icon-",
 
       // css file path prefix - this defaults to "/" and will be placed before the "dest" path when stylesheets are loaded.
       // This allows root-relative referencing of the CSS. If you don't want a prefix path, set to to ""
@@ -76,12 +76,12 @@ module.exports = function(grunt) {
   });
 
   // load npm tasks.
-  grunt.loadNpmTasks('grunt-unicon-sass');
+  grunt.loadNpmTasks('grunt-grunticon-sass');
 
   // Load local tasks.
   grunt.loadTasks('tasks');
 
   // Default task.
-  grunt.registerTask('default', 'lint unicon');
+  grunt.registerTask('default', 'lint grunticon');
 
 };
