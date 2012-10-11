@@ -1,6 +1,6 @@
-# grunticon, SASSified!
+# grunticon for Stylus
 
-This is a Sass version of the [original and awesomer Grunticon](https://github.com/filamentgroup/grunticon)
+This is a [Stylus](http://learnboost.github.com/stylus) version of the [original and awesomer Grunticon](https://github.com/filamentgroup/grunticon)
 
 ```
          /'
@@ -19,11 +19,11 @@ This is a Sass version of the [original and awesomer Grunticon](https://github.c
 
 grunticon is a [Grunt.js](https://github.com/cowboy/grunt/) task that makes it easy to manage icons and background images for all devices, preferring HD (retina) SVG icons but also provides fallback support for standard definition browsers, and old browsers alike. From a CSS perspective, it's easy to use, as it generates a customizable selector referencing each icon, and doesn't use CSS sprites. 
 
-grunticon takes a [folder of SVG files](https://github.com/zigotica/grunticon/tree/master/example/source) (typically, icons that you've drawn in an application like Adobe Illustrator), and [outputs them](https://github.com/zigotica/grunticon/tree/master/example/output) to SCSS in 3 formats: [svg data urls](https://github.com/zigotica/grunticon/blob/master/example/output/icons.data.svg.scss), [png data urls](https://github.com/zigotica/grunticon/blob/master/example/output/icons.data.png.scss), and [a third fallback CSS file with references to regular png images](https://github.com/zigotica/grunticon/blob/master/example/output/icons.fallback.scss), which are also automatically [generated and placed in a folder](https://github.com/zigotica/grunticon/tree/master/example/output/png). 
+grunticon takes a [folder of SVG files](https://github.com/stevoland/grunticon/tree/master/example/source) (typically, icons that you've drawn in an application like Adobe Illustrator), and [outputs them](https://github.com/stevoland/grunticon/tree/master/example/output) to Stylus in 3 formats: [svg data urls](https://github.com/stevoland/grunticon/blob/master/example/output/icons.data.svg.styl), [png data urls](https://github.com/stevoland/grunticon/blob/master/example/output/icons.data.png.styl), and [a third fallback CSS file with references to regular png images](https://github.com/stevoland/grunticon/blob/master/example/output/icons.fallback.styl), which are also automatically [generated and placed in a folder](https://github.com/stevoland/grunticon/tree/master/example/output/png). 
 
-Currently, as of version 0.1.4 of this fork we are outputting 3 scss files and one txt that holds a list of selectors/original files. The purpose is to use sass to hold a file list with custom selectors for each icon, so we can import them into the 3 scss files and watch changes to build the final css files. The original filelist must be copy/pasted into a scss file that we will create and maintain separately (to avoid overwritting custom selectors). The name of the text and scss files can also be customized in grunt.js
+Currently, as of version 0.1.4 of this fork we are outputting 3 Stylus files and one txt that holds a list of selectors/original files. The purpose is to use Stylus to hold a file list with custom selectors for each icon, so we can import them into the 3 Stylus files and watch changes to build the final css files. The original filelist must be copy/pasted into a Stylus file that we will create and maintain separately (to avoid overwritting custom selectors). The name of the text and Stylus files can also be customized in grunt.js
 
-grunticon also generates [a small bit of JavaScript and CSS](https://github.com/zigotica/grunticon/blob/master/example/output/grunticon.loader.txt) to drop into your site, which asynchronously loads the appropriate icon CSS depending on a browser's capabilities, and a preview HTML file with that loader script in place. 
+grunticon also generates [a small bit of JavaScript and CSS](https://github.com/stevoland/grunticon/blob/master/example/output/grunticon.loader.txt) to drop into your site, which asynchronously loads the appropriate icon CSS depending on a browser's capabilities, and a preview HTML file with that loader script in place. 
 
 You can see [a demonstration of the output here](http://filamentgroup.com/examples/grunticon-output/preview.html).
 
@@ -37,12 +37,12 @@ First, you'll need to install [PhantomJS](http://phantomjs.org/), which you migh
 
 Once those are installed...
 
-Install the grunticon module with: `npm install grunt-grunticon-sass`
+Install the grunticon module with: `npm install grunt-grunticon-stylus`
 
 Then add this line to your project's `grunt.js` gruntfile:
 
 ```javascript
-grunt.loadNpmTasks('grunt-grunticon-sass');
+grunt.loadNpmTasks('grunt-grunticon-stylus');
 ```
 
 And lastly, add the configuration settings to your `grunt.js` file as mentioned below. grunticon will batch your icons whenever you run `$ grunt`, and output the files listed above to your `dest` folder, which is documented below.
@@ -55,14 +55,15 @@ And lastly, add the configuration settings to your `grunt.js` file as mentioned 
 grunticon has 2 required configuration properties: `src` and `dest`. Both need to be defined for grunticon to run.
 
 - `src`: path to your folder of svg files, relative to the grunt.js file. Perhaps something like `images/icons-source/`.
-- `dest`: path to the folder that grunticon will write to, relative to the grunt.js file. Ideally, this would be a folder that does not yet exist in your directory. Perhaps something like `css/icons-dist/`.
+- `dest`: path to the folder that grunticon will write to, relative to the grunt.js file. Ideally, this would be a folder that does not yet exist in your directory. Perhaps something like `stylus/icons/`.
+- `cssdest`: path to where your css files will be generated by Stylus
 
 These can be set in your grunt.js config file, under the name `grunticon`, like so:
 
 ```
 	grunticon: {
-      src: "css/dist/icons/",
-      dest: "css/icons/"
+      src: "images/icons-source",
+      dest: "stylus/icons-dist"
     }
 ```
 
@@ -81,16 +82,19 @@ grunticon will now batch your icons whenever you run grunt.
 In addition to the required configuration properties above, grunticon's grunt configuration lets you configure the names of the files and the images folder it generates inside `dest`. 
 
 - `iconslistfile`: text file that will hold the original list of icons. Default: `"icons.list.txt"`
-- `iconslistcss`:  scss file that will hold the customized selectors for each icon. YOU create this file manually. Default: `"icons.list.scss"`
-- `datasvgcss`: The name of the SCSS file containing SVG data uris. Default: `"icons.data.svg.scss"`
-- `datapngcss`: The name of the SCSS file containing PNG data uris. Default: `"icons.data.png.scss"`
-- `urlpngcss`: The name of the SCSS file containing external png url references. Default: `"icons.fallback.scss"`
+- `iconslistcss`:  Stylus file that will hold the customized selectors for each icon. YOU create this file manually. Default: `"icons.list.styl"`
+- `datasvgstyl`: The name of the Stylus file containing SVG data uris. Default: `"icons.data.svg.styl"`
+- `datapngstyl`: The name of the Stylus file containing PNG data uris. Default: `"icons.data.png.styl"`
+- `urlpngstyl`: The name of the Stylus file containing external png url references. Default: `"icons.fallback.styl"`
+- `datasvgcss`: The name of the CSS file containing SVG data uris. Default: `"icons.data.svg.css"`
+- `datapngcss`: The name of the CSS file containing PNG data uris. Default: `"icons.data.png.css"`
+- `urlpngcss`: The name of the CSS file containing external png url references. Default: `"icons.fallback.css"`
 - `previewhtml`: The name of the generated HTML file containing PNG data uris. Default: `"preview.html"`
 - `loadersnippet`:  The name of the generated text file containing the grunticon loading snippet. Default: `"grunticon.loader.txt"`
 - `pngfolder`:  The name of the generated folder containing the generated PNG images. Default: `"png/"`
 - `cssprefix`: a string to prefix all css classes with. Default: `"icon-"`
 
-A cinfig.ru has been added to build css files from previous scss filses. You will have to  watch the foler or build manually. eg. compas watch
+A cinfig.ru has been added to build css files from previous Stylus filses. You will have to  watch the foler or build manually. eg. compas watch
 
 ## Browser testing results for icon output
 
@@ -148,4 +152,3 @@ The example SVG icons in the source folder are borrowed from a few places, with 
 - All others are either from [this free set by Tehk Seven](http://www.tehkseven.net/blog/1/entry-1066-475-free-awesome-high-quality-icons-for-designers/) or drawn by @toddparker of Filament Group
 
 ## ToDo
-- add grunt-compass to watch for scss changes automatically on grunt call (add it to dependencies section in package.json as well)

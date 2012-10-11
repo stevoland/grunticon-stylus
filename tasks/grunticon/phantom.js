@@ -16,15 +16,15 @@ phantom args sent from grunticon.js:
   [1] - output directory path
   [2] - asyncCSS output file path
   [3] - preview.html static file path
-  [4] - SCSS filename for datasvg scss
-  [5] - SCSS filename for datapng scss
-  [6] - SCSS filename for urlpng scss
+  [4] - Stylus filename for datasvg .styl
+  [5] - Stylus filename for datapng .styl
+  [6] - Stylus filename for urlpng .styl
   [7] - filename for preview HTML file
   [8] - png folder name
   [9] - css classname prefix
   [10] - css basepath prefix
   [11] - text file that will hold the original list of icons
-  [12] - scss file that will hold the customized selectors
+  [12] - Stylus file that will hold the customized selectors
   [13] - CSS filename for datasvg css (for preview.html js code)
   [14] - CSS filename for datapng css
   [15] - CSS filename for urlpng css
@@ -33,6 +33,7 @@ phantom args sent from grunticon.js:
 var fs = require( "fs" );
 var inputdir = phantom.args[0];
 var outputdir = phantom.args[1];
+var cssdir = phantom.args[16];
 var pngout =  phantom.args[8];
 var cssprefix = phantom.args[9];
 var files = fs.list( inputdir );
@@ -41,9 +42,9 @@ var pngcssrules = [];
 var pngdatacssrules = [];
 var datacssrules = [];
 var htmlpreviewbody = [];
-var fallbackscss = phantom.args[6];
-var pngdatascss = phantom.args[5];
-var datascss = phantom.args[4];
+var fallbackstyl = phantom.args[6];
+var pngdatastyl = phantom.args[5];
+var datastyl = phantom.args[4];
 var cssbasepath = phantom.args[10];
 // css version as well to be used in the async call:
 var fallbackcss = phantom.args[15];
@@ -52,12 +53,12 @@ var datacss = phantom.args[13];
 // hold the list of icons:
 var listiconsnames = [];
 var listiconsfile = phantom.args[11];
-var listiconscss = phantom.args[12];
-// now we add the require calls to each scss file
+var listiconstyl = phantom.args[12];
+// now we add the require calls to each Stylus file
 // these will reference our custom list of selectors for each icon file
-datacssrules.push( "@import \"" + listiconscss +  "\";" );
-pngdatacssrules.push( "@import \"" + listiconscss +  "\";" );
-pngcssrules.push( "@import \"" + listiconscss +  "\";" );
+datacssrules.push( "@import \"" + listiconstyl +  "\";" );
+pngdatacssrules.push( "@import \"" + listiconstyl +  "\";" );
+pngcssrules.push( "@import \"" + listiconstyl +  "\";" );
 
 // increment the current file index and process it
 function nextFile(){
@@ -66,7 +67,7 @@ function nextFile(){
 }
 
 // files have all been processed. write the css and html files and return
-function finishUp(){
+function finishUp() {
 
   // make the preview HTML file and asyncCSS loader file
   var asyncCSS = fs.read( phantom.args[2] );
@@ -78,13 +79,13 @@ function finishUp(){
   var htmldoc = fs.read( phantom.args[3]);
 
   // noscript for the snippet file
-  var noscript = '<noscript><link href="' + cssbasepath + outputdir + fallbackcss + '" rel="stylesheet"></noscript>';
+  var noscript = '<noscript><link href="' + cssbasepath + fallbackcss + '" rel="stylesheet"></noscript>';
 
   // noscript for the preview file
   var noscriptpreview = '<noscript><link href="' + fallbackcss + '" rel="stylesheet"></noscript>';
 
   // add custom function call to asyncCSS
-  asyncCSS += '\ngrunticon( [ "' + cssbasepath + outputdir + datacss +'", "' + cssbasepath + outputdir + pngdatacss +'", "' + cssbasepath + outputdir + fallbackcss +'" ] );';
+  asyncCSS += '\ngrunticon( [ "' + cssbasepath + datacss +'", "' + cssbasepath + pngdatacss +'", "' + cssbasepath + fallbackcss +'" ] );';
   asyncCSSpreview += '\ngrunticon( [ "'+ datacss +'", "'+ pngdatacss +'", "'+ fallbackcss +'" ] );';
 
   // add async loader to the top
@@ -97,25 +98,25 @@ function finishUp(){
   htmldoc = htmldoc.replace( /<\/body>/, htmlpreviewbody.join( "\n\t" ) + "\n</body>" );
 
   // write the preview html file
-  fs.write( outputdir + phantom.args[7], htmldoc );
+  fs.write( cssdir + phantom.args[7], htmldoc );
 
   // write txt with list of files
   fs.write( outputdir + listiconsfile, listiconsnames.join( "\n\n" ) );
 
   /*
   // TO FIX: using this check makes phantomjs fail silently (no files are written to disk)
-  // write scss to hold our custom selectors, but only if it does not exist:
+  // write Stylus to hold our custom selectors, but only if it does not exist:
   if(!fs.exist(outputdir + listiconsfile)) {
-    fs.write( outputdir + listiconscss, listiconsnames.join( "\n\n" ) );
+    fs.write( outputdir + listiconstyl, listiconsnames.join( "\n\n" ) );
   }
   else {
   }
   */
 
-  // write SCSS files
-  fs.write( outputdir + fallbackscss, pngcssrules.join( "\n\n" ) );
-  fs.write( outputdir + pngdatascss, pngdatacssrules.join( "\n\n" ) );
-  fs.write( outputdir + datascss, datacssrules.join( "\n\n" ) );
+  // write Stylus files
+  fs.write( outputdir + fallbackstyl, pngcssrules.join( "\n\n" ) );
+  fs.write( outputdir + pngdatastyl, pngdatacssrules.join( "\n\n" ) );
+  fs.write( outputdir + datastyl, datacssrules.join( "\n\n" ) );
 
   // overwrite the snippet HTML
   fs.write( phantom.args[2], "<!-- Unicode CSS Loader: place this in the head of your page -->\n<script>\n" + asyncCSS + "</script>\n" + noscript );
@@ -148,13 +149,13 @@ function processFile(){
         svgdatauri += btoa(svgdata);
 
         // add lines to list of icons file:
-        listiconsnames.push( "$" + cssprefix + filenamenoext + " : \"." + cssprefix + filenamenoext + "\";" );
+        listiconsnames.push( "$" + cssprefix + filenamenoext + " = \"." + cssprefix + filenamenoext + "\";" );
 
         // add rules to svg data css file (changed from .icon-file format to #{$icon-file} format)
-        datacssrules.push( "#{$" + cssprefix + filenamenoext + "} { background-image: url(" + svgdatauri + "); background-repeat: no-repeat; }" );
+        datacssrules.push( "{$" + cssprefix + filenamenoext + "} {\n\tbackground-image: url('" + svgdatauri + "');\n\tbackground-repeat: no-repeat;\n}" );
 
         // add rules to png url css file (changed from .icon-file format to #{$icon-file} format)
-        pngcssrules.push( "#{$" + cssprefix + filenamenoext + "} { background-image: url(" + pngout + filenamenoext + ".png" + "); background-repeat: no-repeat; }" );
+        pngcssrules.push( "{$" + cssprefix + filenamenoext + "} {\n\tbackground-image: url('" + pngout + filenamenoext + ".png" + "');\n\tbackground-repeat: no-repeat;\n}" );
         
         // add markup to the preview html file
         htmlpreviewbody.push( '<pre><code>.' + cssprefix + filenamenoext + ':</code></pre><div class="' + cssprefix + filenamenoext + '" style="width: '+ width +'; height: '+ height +'"></div><hr/>' );
@@ -166,10 +167,10 @@ function processFile(){
         page.open(  inputdir + theFile, function( status ){
 
           // create png file
-          page.render( outputdir + pngout + filenamenoext + ".png" );
+          page.render( cssdir + pngout + filenamenoext + ".png" );
 
           // create png data URI (changed from .icon-file format to #{$icon-file} format)
-          pngdatacssrules.push( "#{$" + cssprefix + filenamenoext + "} { background-image: url(" +  pngdatauri + page.renderBase64( "png" ) + "); background-repeat: no-repeat; }" );
+          pngdatacssrules.push( "{$" + cssprefix + filenamenoext + "} {\n\tbackground-image: url('" +  pngdatauri + page.renderBase64( "png" ) + "');\n\tbackground-repeat: no-repeat;\n}" );
 
           // process the next svg
           nextFile();

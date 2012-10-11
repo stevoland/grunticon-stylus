@@ -14,8 +14,9 @@ module.exports = function(grunt) {
     },
     grunticon: {
       // required config
-      src: "example/source/",
-      dest: "example/output/",
+      src: "example/svg/",
+      dest: "example/stylus/grunticon/",
+      cssdest: "example/build/css/grunticon/",
 
       // optional grunticon config properties
 
@@ -25,12 +26,12 @@ module.exports = function(grunt) {
       iconslistfile: "icons.list.txt",
 
       // YOU create this file manually so that we dont overwrite content on icons change
-      iconslistcss: "icons.list.scss",
+      iconsliststyl: "icons.list.styl",
 
       // SCSS filenames (now sass powered in order to manage different selectors)
-      datasvgscss: "icons.data.svg.scss",
-      datapngscss: "icons.data.png.scss",
-      urlpngscss: "icons.fallback.scss",
+      datasvgstyl: "icons.data.svg.styl",
+      datapngstyl: "icons.data.png.styl",
+      urlpngstyl: "icons.fallback.styl",
 
       // CSS filenames (used in async call in preview html)
       datasvgcss: "icons.data.svg.css",
@@ -68,7 +69,7 @@ module.exports = function(grunt) {
         node: true,
         es5: true
       },
-      globals: { 
+      globals: {
         Image: true,
         window: true
       }
@@ -76,7 +77,7 @@ module.exports = function(grunt) {
   });
 
   // load npm tasks.
-  grunt.loadNpmTasks('grunt-grunticon-sass');
+  grunt.loadNpmTasks('grunt-grunticon-stylus');
 
   // Load local tasks.
   grunt.loadTasks('tasks');

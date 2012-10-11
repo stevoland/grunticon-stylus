@@ -1,8 +1,8 @@
 {
-  "name": "grunt-grunticon-sass",
-  "description": "A mystical CSS icon solution. This is a fork from filamentgroup grunt-grunticon: this version is Sass powered, maintained by Sergi Meseguer aka zigotica",
+  "name": "grunt-grunticon-stylus",
+  "description": "A mystical CSS icon solution. Fork of filamentgroup grunt-grunticon: this version is Stylus powered",
   "version": "0.1.6",
-  "homepage": "https://github.com/zigotica/grunticon",
+  "homepage": "https://github.com/stevoland/grunticon-stylus",
   "author": {
     "name": "Scott Jehl",
     "email": "scott@filamentgroup.com",
@@ -10,22 +10,22 @@
   },
   "maintainers": [ 
     {
-      "name": "Sergi Meseguer",
-      "email": "zigotica@gmail.com",
-      "url": "http://zigotica.com"
+      "name": "stevo (Stephen Collings)",
+      "email": "stevoland@gmail.com",
+      "url": "http://stevoland.com"
     } 
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/zigotica/grunticon.git"
+    "url": "https://github.com/stevoland/grunticon-stylus.git"
   },
   "bugs": {
-    "url": "https://github.com/zigotica/grunticon/issues"
+    "url": "https://github.com/stevoland/grunticon-stylus/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/zigotica/grunticon/blob/master/LICENSE-MIT"
+      "url": "https://github.com/stevoland/grunticon-stylus/blob/master/LICENSE-MIT"
     }
   ],
   "main": "tasks/grunticon",
@@ -41,8 +41,8 @@
   "keywords": [
     "gruntplugin",
     "grunticon",
-    "sass",
-    "scss",
+    "stylus",
+    "css",
     "icon",
     "svg",
     "png",

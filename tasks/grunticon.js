@@ -30,6 +30,12 @@ module.exports = function(grunt ) {
         config.dest += "/";
     }
 
+    var cssdest = config.cssdest || config.dest;
+
+    if( !cssdest.match( /\/$/ ) ){
+        cssdest += "/";
+    }
+
     var asyncCSS = grunt.task.getFile( "grunticon/static/grunticon.loader.js" );
     var asyncCSSBanner = grunt.task.getFile( "grunticon/static/grunticon.loader.banner.js" );
     var previewHTMLsrc = grunt.task.getFile( "grunticon/static/preview.html" );
@@ -37,15 +43,15 @@ module.exports = function(grunt ) {
     // text filename that will hold the original list of icons
     var iconslistfile = grunt.config.iconslistfile || "icons.list.txt";
 
-    // scss filename that will be used to add our own selectors
+    // Stylus filename that will be used to add our own selectors
     // this file will need to be created manually to avoid overwrite!
-    // we list it here so we can add the require rules at beginning of the 3 scss files
-    var iconslistcss = grunt.config.iconslistcss || "icons.list.scss";
+    // we list it here so we can add the require rules at beginning of the 3 Stylus files
+    var iconsliststyl = grunt.config.iconsliststyl || "icons.list.styl";
 
-    // SCSS filenames 
-    var datasvgscss = grunt.config.datasvgscss || "icons.data.svg.scss";
-    var datapngscss = grunt.config.datapngscss || "icons.data.png.scss";
-    var urlpngscss = grunt.config.urlpngscss || "icons.fallback.scss";
+    // Stylus filenames
+    var datasvgstyl = grunt.config.datasvgstyl || "icons.data.svg.styl";
+    var datapngstyl = grunt.config.datapngstyl || "icons.data.png.styl";
+    var urlpngstyl = grunt.config.urlpngstyl || "icons.fallback.styl";
 
     // CSS filenames to be used on preview async call
     var datasvgcss = grunt.config.datasvgcss || "icons.data.svg.css";
@@ -59,7 +65,7 @@ module.exports = function(grunt ) {
     var loadersnippet = config.loadersnippet || "grunticon.loader.txt";
 
     // css references base path for the loader
-    var cssbasepath = config.cssbasepath || "/";
+    var cssbasepath = (typeof config.cssbasepath === 'string') ? config.cssbasepath : "/";
 
     // folder name (within the output folder) for generated png files
     var pngfolder = config.pngfolder || "png/";
@@ -69,13 +75,13 @@ module.exports = function(grunt ) {
     }
 
     // css class prefix
-    var cssprefix = config.cssprefix || "icon";
+    var cssprefix = (typeof config.cssprefix === 'string') ? config.cssprefix : "icon";
     
     // create the output directory
     grunt.file.mkdir( config.dest );
 
     // create the output icons directory
-    grunt.file.mkdir( config.dest + pngfolder );
+    grunt.file.mkdir( config.cssdest + pngfolder );
 
     // minify the source of the grunticon loader and write that to the output
     grunt.log.write( "\ngrunticon now minifying the stylesheet loader source." );
@@ -87,29 +93,34 @@ module.exports = function(grunt ) {
     grunt.log.write( "\ngrunticon loader file created." );
 
     // take it to phantomjs to do the rest
-    grunt.log.write( "\ngrunticon now spawning phantomjs..." );
+    grunt.log.write( "\ngrunticon now spawning phantomjs...\n" );
 
-    grunt.utils.spawn({
-      cmd: 'phantomjs',
-      args: [
+    var args = [
         grunt.task.getFile('grunticon/phantom.js'),
         config.src,
         config.dest,
         loaderCodeDest,
         previewHTMLsrc,
-        datasvgscss,
-        datapngscss,
-        urlpngscss,
+        datasvgstyl,
+        datapngstyl,
+        urlpngstyl,
         previewhtml,
         pngfolder,
-        cssprefix,
-        cssbasepath,
+        "'" + cssprefix + "'",
+        "'" + cssbasepath + "'",
         iconslistfile,
-        iconslistcss,
+        iconsliststyl,
         datasvgcss,
         datapngcss,
-        urlpngcss
-      ],
+        urlpngcss,
+        cssdest
+      ];
+
+    //grunt.log.write( args.join(',\n') );
+
+    grunt.utils.spawn({
+      cmd: 'phantomjs',
+      args: args,
       fallback: ''
     }, function(err, result, code) {
       // TODO boost this up a bit.
